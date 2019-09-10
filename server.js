@@ -10,4 +10,9 @@ server.use(express.json());
 
 server.use('/api/car-route', carRoute );
 
+// test get 
+server.get('/', (req, res) => {
+    res.send('testing server is working')
+})
+
 module.exports = server;
