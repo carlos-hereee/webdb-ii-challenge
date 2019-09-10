@@ -38,4 +38,33 @@ router.post('/', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    db('car_dealer')
+        .where({ id: req.params.id })
+        .update(req.body)
+        .then(count => {
+        if (count) {
+            res.status(200).json({ message: `${count} car(s) updated` });
+        } else {
+            res.status(404).json({ message: 'Account not found status 404' });
+        }
+        })
+        .catch(() => {
+        res.status(500).json({ message: 'Could not update the car info status 500' });
+        });
+    });
+    
+router.delete('/:id', (req, res) => {
+    db('car_dealer')
+        .where({ id: req.params.id })
+        .del()
+        .then(count => {
+        res.status(200).json({ message: `${count} car(s) deleted` });
+        })
+        .catch(() => {
+        res.status(500).json({ message: 'Could not remove the account status 500' });
+        });
+});
+
+
 module.exports = router;

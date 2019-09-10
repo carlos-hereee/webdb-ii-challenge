@@ -7,8 +7,24 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('car_dealer').insert([
-        {id: 1, carType: 'honda', year: 2006},
-        {id: 2, carType: 'toyota', year: 2013},
+        {
+          id: 1, 
+          make: 'honda', 
+          model: 'accord', 
+          vin: 123, 
+          mileage: 2006,
+          transmission:' ',
+          title: 'clean'
+        },
+        {id: 2, 
+          make: 'toyota',
+          model: 'civic',
+          vin: 1,
+          mileage: 6000,
+          transmission:' ',
+          title: 'salvage'
+        },
+
       ]);
     });
 };

@@ -5,9 +5,14 @@ exports.up = function(knex, Promise) {
       // creates a primary key called id
       tbl.increments();
       // creates a text field called name which is both required and unique
-      tbl.text('carType').notNullable();
+      tbl.text('make').notNullable();
+      tbl.text('model').notNullable();
+      tbl.text('transmission');
       // creates a numeric field called budget which is required
-      tbl.decimal('year').notNullable();
+      tbl.decimal('vin').notNullable();
+      tbl.decimal('mileage').notNullable();
+      tbl.text('title');
+      
     });
   };
   
